@@ -25,7 +25,7 @@ resource "azurerm_network_interface" "web_vm_nic" {
   ip_configuration {
     name                          = "${var.prefix}-config"
     subnet_id                     = var.web_subnet_id
-    private_ip_address_allocation = "Dynamic"
+    private_ip_address_allocation = "static"
   }
 }
 
@@ -76,7 +76,7 @@ resource "azurerm_network_interface" "db_vm_nic" {
   ip_configuration {
     name                          = "${var.prefix}-config"
     subnet_id                     = var.db_subnet_id
-    private_ip_address_allocation = "Dynamic"
+    private_ip_address_allocation = "static"
   }
 }
 

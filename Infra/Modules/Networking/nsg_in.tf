@@ -61,13 +61,27 @@ resource "azurerm_network_security_rule" "web_subnet_deny_security_rule" {
 
 resource "azurerm_network_security_rule" "db_subnet_ssh_security_rule" {
   name                        = "ssh_in"
-  priority                    = 102
+  priority                    = 100
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
   destination_port_range      = "22"
   source_address_prefix       = var.my_ip
+  destination_address_prefix  = "*"
+  resource_group_name         = azurerm_subnet.db_subnet.resource_group_name
+  network_security_group_name = azurerm_network_security_group.db_subnet_security_group.name
+}
+
+resource "azurerm_network_security_rule" "db_subnet_mysql_security_rule" {
+  name                        = "mysql_in"
+  priority                    = 101
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "3306"
+  source_address_prefix       = azurerm_subnet.web_subnet.address_prefix
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_subnet.db_subnet.resource_group_name
   network_security_group_name = azurerm_network_security_group.db_subnet_security_group.name
@@ -86,4 +100,6 @@ resource "azurerm_network_security_rule" "db_subnet_deny_security_rule" {
   resource_group_name         = azurerm_subnet.db_subnet.resource_group_name
   network_security_group_name = azurerm_network_security_group.db_subnet_security_group.name
 }
+
+
 
