@@ -45,6 +45,8 @@ module "blog_lb" {
   prefix              = var.prefix
   resource_group_name = module.blog_resource_group.resource_group_name
   location            = var.location
+  web_server_nic_id   = module.virtual_machines.web_server_nic_id
+  web_server_ip_conf  = module.virtual_machines.web_server_ip_conf
 }
 
 module "virtual_machines" {

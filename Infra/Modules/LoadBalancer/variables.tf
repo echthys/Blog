@@ -17,3 +17,14 @@ variable "resource_group_name" {
   type        = string
   description = "Resource group that the VNET will be created in."
 }
+
+variable "web_server_nic_id" {
+  type        = string
+  description = "The NIC id of the web server"
+}
+
+
+variable "web_server_ip_conf" {
+  type        = string
+  description = "The NIC id of the web server"
+}
