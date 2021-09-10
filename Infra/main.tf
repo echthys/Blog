@@ -39,5 +39,13 @@ module "blog_vnet" {
   my_ip               = data.http.my_ip.body
 }
 
+module "blog_lb" {
+  source              = "./Modules/LoadBalancer"
+  subscription_id     = var.subscription_id
+  prefix              = var.prefix
+  resource_group_name = module.blog_resource_group.resource_group_name
+  location            = var.location
+}
+
 
 
