@@ -47,6 +47,8 @@ module "blog_lb" {
   location            = var.location
   web_server_nic_id   = module.virtual_machines.web_server_nic_id
   web_server_ip_conf  = module.virtual_machines.web_server_ip_conf
+  db_server_nic_id    = module.virtual_machines.db_server_nic_id
+  db_server_ip_conf   = module.virtual_machines.db_server_ip_conf
 }
 
 module "virtual_machines" {

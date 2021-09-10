@@ -28,3 +28,13 @@ variable "web_server_ip_conf" {
   type        = string
   description = "The NIC id of the web server"
 }
+
+variable "db_server_nic_id" {
+  type        = string
+  description = "The NIC id of the db server"
+}
+
+variable "db_server_ip_conf" {
+  type        = string
+  description = "The NIC id of the db server"
+}
