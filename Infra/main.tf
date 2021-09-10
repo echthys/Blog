@@ -36,6 +36,8 @@ module "blog_vnet" {
   resource_group_name = module.blog_resource_group.resource_group_name
   location            = var.location
   vnet_address_space  = ["172.16.0.0/24"]
+  my_ip               = data.http.my_ip.body
 }
+
 
 

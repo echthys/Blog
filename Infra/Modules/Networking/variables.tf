@@ -23,3 +23,7 @@ variable "location" {
   description = "Location of resources"
 }
 
+variable "my_ip" {
+  type        = string
+  description = "IP Address for SSH"
+}
