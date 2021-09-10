@@ -13,6 +13,21 @@ variable "location" {
   description = "Location that resources will be deployed."
 }
 
+variable "resource_group_name" {
+  type        = string
+  description = "Resource group that the VNET will be created in."
+}
+
+variable "web_subnet_id" {
+  type        = string
+  description = "The ID of the Web Subnet"
+}
+
+variable "db_subnet_id" {
+  type        = string
+  description = "The ID of the DB Subnet"
+}
+
 variable "user" {
   type        = string
   description = "Username for the VM"
